@@ -5,7 +5,6 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
@@ -61,15 +60,15 @@ public class Game extends Canvas implements Runnable {
         // ==========================================
 
         // Option 1: Sprite-based style (images/textures)
-        styleFactory = new SpriteStyleFactory();
+        // styleFactory = new SpriteStyleFactory();
         // Choose style factory (configured via -Dstyle=...).
-        styleFactory = StyleFactoryConfig.build();
+        // styleFactory = StyleFactoryConfig.build();
 
         // Option 2: Vectorial style (retro monochrome)
         // styleFactory = new VectorialStyleFactory();
 
         // Option 3: Colorful vectorial style
-        // styleFactory = new ColorfulVectorialStyleFactory();
+        styleFactory = new ColorfulVectorialStyleFactory();
 
         // ==========================================
         // INITIALIZE VIEW (Rendering Layer)
@@ -175,7 +174,7 @@ public class Game extends Canvas implements Runnable {
                 delta--;
             }
 
-            render();
+            view.render(this);
             frames++;
 
             if (System.currentTimeMillis() - timer > 1000) {
@@ -195,27 +194,6 @@ public class Game extends Canvas implements Runnable {
     public void tick() {
         player.tick();
         bullets.tick();
-    }
-
-    /**
-     * Renders game graphics (VIEW ONLY).
-     * Model does not participate in rendering.
-     */
-    public void render() {
-        BufferStrategy bs = this.getBufferStrategy();
-        if (bs == null) {
-            createBufferStrategy(3);
-            return;
-        }
-
-        Graphics g = bs.getDrawGraphics();
-        //////////////////////////////////
-
-        view.render(g, this);
-
-        //////////////////////////////////
-        g.dispose();
-        bs.show();
     }
 
     /**

@@ -2,6 +2,7 @@ package com.balitechy.spacewar.main;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 
 /**
  * View layer - Handles ONLY rendering.
@@ -16,11 +17,11 @@ import java.awt.Graphics;
  */
 public class View {
 
-    private final Player player;
-    private final BulletController bullets;
+    private Player player;
+    private BulletController bullets;
 
-    private final IStyleFactory styleFactory;
-    private final IBackgroundStyle backgroundStyle;
+    private IStyleFactory styleFactory;
+    private IBackgroundStyle backgroundStyle;
 
     /**
      * Creates a View with a specific style factory.
@@ -42,7 +43,17 @@ public class View {
      * @param g Graphics context for drawing
      * @param c Canvas to get dimensions
      */
-    public void render(Graphics g, Canvas c) {
+    public void render(Canvas c) {
+        BufferStrategy bs = c.getBufferStrategy();
+        if (bs == null) {
+            c.createBufferStrategy(3);
+            return;
+        }
+
+        Graphics g = bs.getDrawGraphics();
+
+        //////////////////////////////////
+
         // 1. Render background
         backgroundStyle.render(g, c);
 
@@ -55,5 +66,10 @@ public class View {
             IBulletStyle bulletStyle = styleFactory.createBulletStyle(bullet);
             bulletStyle.render(g);
         }
+
+        //////////////////////////////////
+
+        g.dispose();
+        bs.show();
     }
 }
