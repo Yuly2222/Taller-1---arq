@@ -2,10 +2,11 @@ package com.balitechy.spacewar.main;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 /**
- * Colorful Vectorial visual representation of a Bullet.
- * Uses geometric primitives with vibrant colors.
+ * Colorful vectorial bullet: neon plasma pellet.
  */
 public class ColorfulVectorialBullet implements IBulletStyle {
 

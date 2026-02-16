@@ -2,6 +2,8 @@ package com.balitechy.spacewar.main;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 public class VectorialBullet implements IBulletStyle {
 
