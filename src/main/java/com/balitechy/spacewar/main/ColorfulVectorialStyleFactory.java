@@ -1,19 +1,26 @@
 package com.balitechy.spacewar.main;
 
+/**
+ * Concrete Factory for creating Colorful Vectorial visual styles.
+ * Creates a complete family of colorful vector-based rendering components.
+ * 
+ * This factory ensures all visual elements use geometric primitives
+ * with vibrant colors for a modern, eye-catching appearance.
+ */
 public class ColorfulVectorialStyleFactory implements IStyleFactory {
 
     @Override
-    public APlayerStyle createStylePlayer(Player player, Game game) {
-        return new ColorfulVectorialPlayer(player, game);
+    public IPlayerStyle createPlayerStyle(Player player) {
+        return new ColorfulVectorialPlayer(player);
     }
 
     @Override
-    public ABulletStyle createStyleBullet(Bullet bullet, Game game) {
-        return new ColorfulVectorialBullet(bullet, game);
+    public IBulletStyle createBulletStyle(Bullet bullet) {
+        return new ColorfulVectorialBullet(bullet);
     }
 
     @Override
-    public IBackgroundStyle createBackground(Game game) {
+    public IBackgroundStyle createBackgroundStyle() {
         return new ColorfulVectorialBackground();
     }
 }

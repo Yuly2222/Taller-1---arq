@@ -1,0 +1,61 @@
+package com.balitechy.spacewar.main;
+
+public class Player {
+
+    private double x;
+    private double y;
+
+    private double velX;
+    private double velY;
+
+    public static final int WIDTH = 56;
+    public static final int HEIGHT = 28;
+
+    private final Game game;
+
+    public Player(double x, double y, Game game) {
+        this.x = x;
+        this.y = y;
+        this.game = game;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setVelX(double velX) {
+        this.velX = velX;
+    }
+
+    public void setVelY(double velY) {
+        this.velY = velY;
+    }
+
+    public void shoot() {
+        Bullet b = new Bullet(x + (WIDTH / 2.0) - 5, y - 18, game);
+        game.getBullets().addBullet(b);
+    }
+
+    public void tick() {
+        x += velX;
+        y += velY;
+
+        // Keep player inside the arena bounds.
+        if (x <= 0) x = 0;
+        if (x >= (Game.WIDTH * Game.SCALE) - WIDTH) x = (Game.WIDTH * Game.SCALE) - WIDTH;
+        if (y <= 0) y = 0;
+        if (y >= (Game.HEIGHT * Game.SCALE) - HEIGHT) y = (Game.HEIGHT * Game.SCALE) - HEIGHT;
+    }
+}

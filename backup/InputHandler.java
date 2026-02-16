@@ -3,14 +3,11 @@ package com.balitechy.spacewar.main;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-/**
- * Handles keyboard input and delegates to the Game.
- */
-public class InputHandler extends KeyAdapter {
-
-	private final Game game;
-
-	public InputHandler(Game game) {
+public class InputHandler extends KeyAdapter{
+	
+	private Game game;
+	
+	public InputHandler(Game game){
 		this.game = game;
 	}
 
@@ -23,4 +20,5 @@ public class InputHandler extends KeyAdapter {
 	public void keyReleased(KeyEvent e) {
 		game.keyReleased(e);
 	}
+
 }

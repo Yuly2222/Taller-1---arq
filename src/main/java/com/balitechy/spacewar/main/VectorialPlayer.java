@@ -1,20 +1,42 @@
 package com.balitechy.spacewar.main;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Stub implementation: vectorial retro style.
- * (Requested: do not implement style yet; keep compile-ready.)
+ * Vectorial (retro) visual representation of the Player.
+ * Uses geometric primitives (lines, polygons) in white.
+ * Creates a classic arcade-style spaceship appearance.
  */
-public class VectorialPlayer extends APlayerStyle {
+public class VectorialPlayer implements IPlayerStyle {
 
-    public VectorialPlayer(Player player, Game game) {
-        super(player, game);
+    private final Player player;
+
+    public VectorialPlayer(Player player) {
+        this.player = player;
     }
 
     @Override
     public void render(Graphics g) {
-        // TODO: implement primitives-based rendering
-        g.drawRect((int) player.getX(), (int) player.getY(), Player.WIDTH, Player.HEIGHT);
+        int x = (int) player.getX();
+        int y = (int) player.getY();
+
+        g.setColor(Color.BLACK);
+
+        // Draw spaceship as a triangle (classic arcade style)
+        int[] xPoints = {
+                x + Player.WIDTH / 2, // Top center (nose)
+                x, // Bottom left
+                x + Player.WIDTH // Bottom right
+        };
+        int[] yPoints = {
+                y, // Top (nose)
+                y + Player.HEIGHT, // Bottom left
+                y + Player.HEIGHT // Bottom right
+        };
+        g.drawPolygon(xPoints, yPoints, 3);
+
+        // Add detail: draw center line
+        g.drawLine(x + Player.WIDTH / 2, y, x + Player.WIDTH / 2, y + Player.HEIGHT);
     }
 }

@@ -5,28 +5,23 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-/**
- * Sprite-based visual representation of the Background.
- * Uses background image.
- */
 public class SpriteBackground implements IBackgroundStyle {
 
     private BufferedImage background;
 
-    public SpriteBackground() {
+    public SpriteBackground(Game game) {
         try {
             SpritesImageLoader bg = new SpritesImageLoader("/bg.png");
             this.background = bg.loadImage();
         } catch (IOException e) {
             e.printStackTrace();
-            this.background = null;
         }
     }
 
     @Override
     public void render(Graphics g, Canvas c) {
-        if (background != null) {
-            g.drawImage(background, 0, 0, c.getWidth(), c.getHeight(), c);
+        if(background != null) {
+            g.drawImage(background, 0, 0, c.getWidth(), c.getHeight(), null);
         }
     }
 }

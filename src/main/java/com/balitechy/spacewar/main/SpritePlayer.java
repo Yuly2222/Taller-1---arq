@@ -3,14 +3,15 @@ package com.balitechy.spacewar.main;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-public class SpritePlayer extends APlayerStyle {
+public class SpritePlayer implements IPlayerStyle {
 
+    private final Player player;
     private final BufferedImage image;
 
-    public SpritePlayer(Player player, Game game) {
-        super(player, game);
-        // Coordenadas originales del sprite del jugador
-        this.image = game.getSprites().getImage(219, 304, Player.WIDTH, Player.HEIGHT);
+    public SpritePlayer(Player player, SpritesImageLoader sprites) {
+        this.player = player;
+        // Extract player sprite from sprite sheet
+        this.image = sprites.getImage(219, 304, Player.WIDTH, Player.HEIGHT);
     }
 
     @Override

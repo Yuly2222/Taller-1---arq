@@ -4,5 +4,11 @@ import java.awt.Canvas;
 import java.awt.Graphics;
 
 public interface IBackgroundStyle {
-    void render(Graphics g, Canvas c);
+
+    /**
+     * 
+     * @param g Graphics context for drawing
+     * @param c Canvas to get dimensions
+     */
+    public void render(Graphics g, Canvas c);
 }

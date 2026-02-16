@@ -1,19 +1,35 @@
 package com.balitechy.spacewar.main;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Stub implementation: colorful vectorial style.
+ * Colorful Vectorial visual representation of a Bullet.
+ * Uses geometric primitives with vibrant colors.
  */
-public class ColorfulVectorialBullet extends ABulletStyle {
+public class ColorfulVectorialBullet implements IBulletStyle {
 
-    public ColorfulVectorialBullet(Bullet bullet, Game game) {
-        super(bullet, game);
+    private final Bullet bullet;
+
+    public ColorfulVectorialBullet(Bullet bullet) {
+        this.bullet = bullet;
     }
 
     @Override
     public void render(Graphics g) {
-        // TODO: implement primitives-based rendering with colors
-        g.drawOval((int) bullet.getX(), (int) bullet.getY(), Bullet.WIDTH, Bullet.HEIGHT);
+        int x = (int) bullet.getX();
+        int y = (int) bullet.getY();
+
+        // Draw bullet core in bright yellow
+        g.setColor(Color.YELLOW);
+        g.fillOval(x + Bullet.WIDTH / 2 - 2, y, 4, Bullet.HEIGHT);
+
+        // Add outer glow in orange
+        g.setColor(Color.ORANGE);
+        g.drawOval(x + Bullet.WIDTH / 2 - 3, y - 1, 6, Bullet.HEIGHT + 2);
+
+        // Add inner highlight in white
+        g.setColor(Color.WHITE);
+        g.fillOval(x + Bullet.WIDTH / 2 - 1, y + 2, 2, Bullet.HEIGHT / 3);
     }
 }

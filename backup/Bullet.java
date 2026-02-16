@@ -1,9 +1,5 @@
 package com.balitechy.spacewar.main;
 
-/**
- * Bullet entity - Pure model class.
- * Contains only business logic: position and movement.
- */
 public class Bullet {
 
     private double x;
@@ -12,7 +8,7 @@ public class Bullet {
     public static final int WIDTH = 11;
     public static final int HEIGHT = 21;
 
-    public Bullet(double x, double y) {
+    public Bullet(double x, double y, Game game) {
         this.x = x;
         this.y = y;
     }
