@@ -5,17 +5,17 @@ import java.awt.image.BufferedImage;
 
 public class SpritePlayer implements IPlayerStyle {
 
-    private final Player player;
-    private final BufferedImage image;
+    private final Player PLAYER;
+    private final BufferedImage IMAGE;
 
     public SpritePlayer(Player player, SpritesImageLoader sprites) {
-        this.player = player;
+        this.PLAYER = player;
         // Extract player sprite from sprite sheet
-        this.image = sprites.getImage(219, 304, Player.WIDTH, Player.HEIGHT);
+        this.IMAGE = sprites.getImage(219, 304, Player.WIDTH, Player.HEIGHT);
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(image, (int) player.getX(), (int) player.getY(), null);
+        g.drawImage(IMAGE, (int) PLAYER.getX(), (int) PLAYER.getY(), null);
     }
 }

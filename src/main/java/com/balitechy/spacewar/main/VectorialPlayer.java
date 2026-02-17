@@ -2,9 +2,6 @@ package com.balitechy.spacewar.main;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.RenderingHints;
 
 /**
  * <<<<<<< HEAD
@@ -18,16 +15,16 @@ import java.awt.RenderingHints;
  */
 public class VectorialPlayer implements IPlayerStyle {
 
-        private final Player player;
+        private final Player PLAYER     ;
 
         public VectorialPlayer(Player player) {
-                this.player = player;
+                this.PLAYER = player;
         }
 
         @Override
         public void render(Graphics g) {
-                int x = (int) player.getX();
-                int y = (int) player.getY();
+                int x = (int) PLAYER.getX();
+                int y = (int) PLAYER.getY();
 
                 g.setColor(Color.BLACK);
 

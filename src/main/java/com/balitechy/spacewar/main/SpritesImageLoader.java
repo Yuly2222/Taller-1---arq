@@ -9,18 +9,18 @@ import javax.imageio.ImageIO;
  */
 public class SpritesImageLoader {
 
-	private final String path;
+	private final String PATH;
 	private BufferedImage image;
 
 	public SpritesImageLoader(String path) {
-		this.path = path;
+		this.PATH = path;
 	}
 
 	/**
 	 * Loads the sprite sheet image from resources.
 	 */
 	public BufferedImage loadImage() throws IOException {
-		image = ImageIO.read(getClass().getResource(path));
+		image = ImageIO.read(getClass().getResource(PATH));
 		return image;
 	}
 

@@ -2,24 +2,22 @@ package com.balitechy.spacewar.main;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 
 /**
  * Colorful vectorial bullet: neon plasma pellet.
  */
 public class ColorfulVectorialBullet implements IBulletStyle {
 
-    private final Bullet bullet;
+    private final Bullet BULLET;
 
     public ColorfulVectorialBullet(Bullet bullet) {
-        this.bullet = bullet;
+        this.BULLET = bullet;
     }
 
     @Override
     public void render(Graphics g) {
-        int x = (int) bullet.getX();
-        int y = (int) bullet.getY();
+        int x = (int) BULLET.getX();
+        int y = (int) BULLET.getY();
 
         // Draw bullet core in bright yellow
         g.setColor(Color.YELLOW);

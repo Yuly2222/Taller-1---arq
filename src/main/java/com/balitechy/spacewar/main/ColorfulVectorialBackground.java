@@ -12,13 +12,13 @@ import java.util.Random;
 public class ColorfulVectorialBackground implements IBackgroundStyle {
 
     private static final int STAR_COUNT = 60;
-    private final int[][] stars;
-    private final Color[] starColors;
+    private final int[][] STARTS;
+    private final Color[] START_COLORS;
 
     public ColorfulVectorialBackground() {
         // Generate random star positions and colors (only once)
-        stars = new int[STAR_COUNT][2];
-        starColors = new Color[STAR_COUNT];
+        STARTS = new int[STAR_COUNT][2];
+        START_COLORS = new Color[STAR_COUNT];
         Random rand = new Random(42); // Fixed seed for consistency
 
         Color[] possibleColors = {
@@ -28,9 +28,9 @@ public class ColorfulVectorialBackground implements IBackgroundStyle {
         };
 
         for (int i = 0; i < STAR_COUNT; i++) {
-            stars[i][0] = rand.nextInt(640); // x position
-            stars[i][1] = rand.nextInt(480); // y position
-            starColors[i] = possibleColors[rand.nextInt(possibleColors.length)];
+            STARTS[i][0] = rand.nextInt(640); // x position
+            STARTS[i][1] = rand.nextInt(480); // y position
+            START_COLORS[i] = possibleColors[rand.nextInt(possibleColors.length)];
         }
     }
 
@@ -47,10 +47,10 @@ public class ColorfulVectorialBackground implements IBackgroundStyle {
         // Colorful stars
         for (int i = 0; i < STAR_COUNT; i++) {
             // Scale stars to canvas size
-            int x = (stars[i][0] * c.getWidth()) / 640;
-            int y = (stars[i][1] * c.getHeight()) / 480;
+            int x = (STARTS[i][0] * c.getWidth()) / 640;
+            int y = (STARTS[i][1] * c.getHeight()) / 480;
 
-            g.setColor(starColors[i]);
+            g.setColor(START_COLORS[i]);
 
             // Draw stars with different sizes for depth
             if (i % 3 == 0) {

@@ -1,9 +1,7 @@
 package com.balitechy.spacewar.main;
 
-import com.balitechy.spacewar.main.Player;
 import java.awt.Canvas;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
@@ -11,11 +9,11 @@ import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long SERIALVERSIONUID = 1L;
     public static final int WIDTH = 320;
     public static final int HEIGHT = WIDTH / 12 * 9;
     public static final int SCALE = 2;
-    public final String TITLE = "Space War 2D";
+    public static final String TITLE = "Space War 2D";
 
     private boolean running = false;
     private Thread thread;
