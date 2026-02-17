@@ -58,7 +58,7 @@ public class Game extends Canvas implements Runnable {
         // ==========================================
 
         // Option 1: Sprite-based style (images/textures)
-        // styleFactory = new SpriteStyleFactory();
+         styleFactory = new SpriteStyleFactory();
         // Choose style factory (configured via -Dstyle=...).
         // styleFactory = StyleFactoryConfig.build();
 
@@ -66,7 +66,7 @@ public class Game extends Canvas implements Runnable {
         // styleFactory = new VectorialStyleFactory();
 
         // Option 3: Colorful vectorial style
-        styleFactory = new ColorfulVectorialStyleFactory();
+        //styleFactory = new ColorfulVectorialStyleFactory();
 
         // ==========================================
         // INITIALIZE VIEW (Rendering Layer)
