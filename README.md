@@ -1,5 +1,10 @@
 # 🎮 Game Architecture – Implementación Abstract Factory
 
+Integrantes del equipo:
+
+- Brayan Presiga Sepulveda - 0000301424
+- Juan David Sanchez Roldan - 0000340321
+- Yuly Dayana Rodríguez Salcedo -0000305314
 
 ## 📌 Descripción
 
