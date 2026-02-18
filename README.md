@@ -18,7 +18,6 @@ La arquitectura permite cambiar completamente el estilo gráfico sin modificar l
 
 ![Diagrama de juego](imagenGame.png)
 
-> Asegúrese de guardar la imagen dentro de una carpeta `images/` con el nombre `diagrama.png`
 
 ---
 
